@@ -1,0 +1,17 @@
+Technical Approach
+This project will be executed using the following tools and steps:
+
+1. Data Exploration and Cleaning:
+SQL in BigQuery will be used to query, clean, and aggregate the data for analysis.
+Excel will be used for initial data inspection and some manual data processing if necessary.
+Tableau will be employed for data visualization to uncover insights and present results in an interactive dashboard.
+
+ Data Analysis Steps:
+1.Customer Segmentation:
+Group customers by Customer_ID and analyze their total spend, average age, and transaction frequency using SQL.
+2.Sales Trend Analysis:
+Use SQL queries to aggregate sales over time, broken down by Product Category, Age, and Gender.
+3.Demographic Analysis:
+Analyze relationships between Gender, Age, and Total_Spent using SQL queries and Tableau visualizations.
+4.Top Buyers/Spenders Identification:
+Use SQL to rank customers based on total spending and the number of transactions.
