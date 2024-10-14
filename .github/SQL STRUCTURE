@@ -1,0 +1,40 @@
+SELECT * FROM `retail-sales-project-438517.Retail_data_01.Retail_Sales` LIMIT 1000;
+
+--Analyze how Age and Gender influence spending--
+
+SELECT Gender, AVG(Total_Amount) as Avg_Spend, AVG(Age) as Avg_Age
+FROM `retail-sales-project-438517.Retail_data_01.Retail_Sales`
+GROUP BY Gender;
+
+--Identify trends by examining sales over time--
+
+SELECT EXTRACT(YEAR FROM Date) AS Year, SUM(Total_Amount) AS Total_Sales
+FROM `retail-sales-project-438517.Retail_data_01.Retail_Sales`
+GROUP BY Year;
+
+--Examine which product categories generate the most revenue--
+
+SELECT Product_Category, SUM(Total_Amount) AS Total_Revenue
+FROM `retail-sales-project-438517.Retail_data_01.Retail_Sales`
+GROUP BY Product_Category;
+
+--Explore Time-Based Trends: Group transactions by month/year to see sales trend--
+
+SELECT 
+    EXTRACT(MONTH FROM Date) AS month, 
+    SUM(Total_Amount) AS monthly_sales 
+FROM `retail-sales-project-438517.Retail_data_01.Retail_Sales` 
+GROUP BY month
+ORDER BY month;
+
+--Finding the top 10 spenders by calculating the total amount spent per customer--
+
+SELECT 
+    Customer_ID, 
+    SUM(Total_Amount) AS Total_Spent, 
+    COUNT(Transaction_ID) AS Number_of_Transactions
+FROM  `retail-sales-project-438517.Retail_data_01.Retail_Sales` 
+WHERE Date >= '2023-01-01' AND Date <= '2024-01-01'  -- Filter by date range
+GROUP BY Customer_ID
+ORDER BY Total_Spent DESC
+LIMIT 10;
